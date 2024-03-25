@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "paths": {
+            "@/*": [
+                "*"
+            ],
+            "@enums/*": [
+                "core/enums/*"
+            ],
+            "@provider/*": [
+                "infra/providers/*"
+            ],
+            "@infra/*": [
+                "infra/*"
+            ]
+        }
+    }
+}

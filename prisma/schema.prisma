@@ -1,0 +1,228 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model acordo {
+  aluno          String    @db.VarChar(12)
+  sequencia      Int       @db.SmallInt
+  curso          Int?      @db.SmallInt
+  data           DateTime? @db.Timestamp(6)
+  status         Int?      @db.SmallInt
+  tipo           Int?      @db.SmallInt
+  ntitulos       Int?      @db.SmallInt
+  valorprincipal Decimal?  @db.Decimal(15, 2)
+  multa          Decimal?  @db.Decimal(15, 2)
+  permanencia    Float?
+  desconto       Decimal?  @db.Decimal(15, 2)
+  juros          Decimal?  @db.Decimal(15, 2)
+  dataentrada    DateTime? @db.Timestamp(6)
+  entrada        Decimal?  @db.Decimal(15, 2)
+  nparcelas      Int?      @db.SmallInt
+  valorparcelas  Decimal?  @db.Decimal(15, 2)
+  nparcelaspagas Int?      @db.SmallInt
+  usuario        String?   @db.VarChar(20)
+
+  @@id([aluno, sequencia])
+}
+
+model aluno {
+  aluno                    String    @id @db.VarChar(12)
+  nome                     String?   @db.VarChar(50)
+  nomepai                  String?   @db.VarChar(50)
+  nomemae                  String?   @db.VarChar(50)
+  nomeresponsavel          String?   @db.VarChar(50)
+  nomeresponsavelped       String?   @db.VarChar(50)
+  cpf                      String?   @db.VarChar(11)
+  cpfpai                   String?   @db.VarChar(11)
+  cpfmae                   String?   @db.VarChar(11)
+  cpfresponsavel           String?   @db.VarChar(11)
+  cpfresponsavelped        String?   @db.VarChar(11)
+  datanascimento           DateTime? @db.Timestamp(6)
+  sexo                     String?   @db.VarChar(1)
+  logradouro               String?   @db.VarChar(40)
+  numero                   Int?      @db.SmallInt
+  complemento              String?   @db.VarChar(20)
+  bairro                   String?   @db.VarChar(20)
+  municipio                String?   @db.VarChar(20)
+  uf                       String?   @db.VarChar(2)
+  cep                      String?   @db.VarChar(8)
+  telefone                 String?   @db.VarChar(40)
+  email                    String?   @db.VarChar(50)
+  logradourorf             String?   @db.VarChar(40)
+  numerorf                 Int?      @db.SmallInt
+  complementorf            String?   @db.VarChar(20)
+  bairrorf                 String?   @db.VarChar(20)
+  municipiorf              String?   @db.VarChar(20)
+  ceprf                    String?   @db.VarChar(8)
+  ufrf                     String?   @db.VarChar(2)
+  enderecoigualrf          Boolean?  @default(false)
+  logradourorp             String?   @db.VarChar(40)
+  numerorp                 Int?      @db.SmallInt
+  complementorp            String?   @db.VarChar(20)
+  bairrorp                 String?   @db.VarChar(20)
+  municipiorp              String?   @db.VarChar(20)
+  ceprp                    String?   @db.VarChar(8)
+  ufrp                     String?   @db.VarChar(2)
+  enderecoigualrp          Boolean?  @default(false)
+  foto                     String?   @db.VarChar(128)
+  deficienciafisica        Boolean?  @default(false)
+  deficienciavisual        Boolean?  @default(false)
+  deficienciaauditiva      Boolean?  @default(false)
+  importado                Boolean?  @default(false)
+  indicacao                String?   @db.VarChar(12)
+  numerotitulo             Int?      @db.SmallInt
+  divergenciadoc           String?
+  observacao               String?
+  corraca                  Int?      @db.SmallInt
+  tiposange                String?   @db.VarChar(3)
+  obspendencia             String?   @db.VarChar(60)
+  pendencia                Int?
+  nomehistorico            String?   @db.VarChar(60)
+  cadastroescolar          String?   @db.VarChar(15)
+  obshistorico1            String?
+  obshistorico2            String?
+  obshistorico3            String?
+  obshistorico4            String?
+  obscertificado           String?
+  obsfinanceiro            String?
+  emailrf                  String?   @db.VarChar(50)
+  emailrp                  String?   @db.VarChar(50)
+  telefonerf               String?   @db.VarChar(40)
+  telefonerp               String?   @db.VarChar(40)
+  tipocertidao             Int?      @db.SmallInt
+  numerocertidao           String?   @db.VarChar(12)
+  folhacertidao            String?   @db.VarChar(4)
+  livrocertidao            String?   @db.VarChar(8)
+  datacertidao             DateTime? @db.Timestamp(6)
+  ufcertidao               String?   @db.VarChar(2)
+  cartoriocertidao         String?   @db.VarChar(40)
+  mensagemtesouraria       String?   @db.VarChar(80)
+  valorcredito             Decimal?  @db.Decimal(15, 2)
+  valordebito              Decimal?  @db.Decimal(15, 2)
+  certificadonumero        Int?
+  certificadofolha         String?   @db.VarChar(10)
+  certificadolivro         Int?      @db.SmallInt
+  certificadodatadiario    DateTime? @db.Timestamp(6)
+  certificadofolhadiario   String?   @db.VarChar(10)
+  certificadoanoconclusao  Int?      @db.SmallInt
+  certificadounidadeensino Int?
+  saldo                    Decimal?  @db.Decimal(15, 2)
+  ueingresso               Int
+}
+
+model alunoplano {
+  ano   Int
+  aluno String @db.VarChar(12)
+  plano Int
+
+  @@id([ano, aluno, plano])
+}
+
+model conta {
+  codigo           Int     @id @db.SmallInt
+  descricao        String? @db.VarChar(40)
+  grupo            Int?    @db.SmallInt
+  contrapartida    Int?    @db.SmallInt
+  codigoestrutural String? @db.VarChar(14)
+  receitacp        Int?
+
+  @@index([descricao, codigo], map: "containdice1")
+}
+
+model disciplina {
+  codigo            String   @id @db.VarChar(6)
+  descricao         String?  @db.VarChar(40)
+  descricaoresumida String?  @db.VarChar(15)
+  chminima          Float?
+  media             Float?
+  observacao        String?
+  ordem             Int?     @db.SmallInt
+  materia           Int?
+  peso              Int?
+  conceito          Boolean? @default(false)
+  historico         String?  @db.VarChar(5)
+  contarecuperacao  Boolean? @default(false)
+
+  @@index([descricao, codigo], map: "disciplinaindice1")
+}
+
+model materia {
+  codigo      Int      @id
+  descricao   String?  @db.VarChar(25)
+  obrigatoria Boolean? @default(false)
+  ordem       Int?     @db.SmallInt
+  posicao1    Int?     @db.SmallInt
+  posicao2    Int?     @db.SmallInt
+  ranking     Boolean? @default(false)
+  sigla       String?  @db.VarChar(3)
+}
+
+model pais {
+  id        Int     @id @default(autoincrement())
+  descricao String? @db.VarChar(30)
+  bandeira  String? @db.VarChar(200)
+}
+
+model titulo {
+  nossonumero             String    @id @db.VarChar(15)
+  aluno                   Int
+  datavencimento          DateTime? @db.Timestamp(6)
+  valor                   Decimal?  @db.Decimal(15, 2)
+  multa                   Decimal?  @db.Decimal(15, 2)
+  permanencia             Decimal?  @db.Decimal(15, 2)
+  status                  String?   @db.VarChar(1)
+  datacredito             DateTime? @db.Timestamp(6)
+  datapagamento           DateTime? @db.Timestamp(6)
+  horapagamento           DateTime? @db.Timestamp(6)
+  valorpago               Decimal?  @db.Decimal(15, 2)
+  usuario                 String?   @db.VarChar(20)
+  datadesconto            DateTime? @db.Timestamp(6)
+  valordesconto           Decimal?  @db.Decimal(15, 2)
+  dataprocessamento       DateTime? @db.Timestamp(6)
+  transmissao             Boolean   @default(false)
+  valorbolsa              Decimal?  @db.Decimal(15, 2)
+  banco                   Int?      @db.SmallInt
+  carteira                String?   @db.VarChar(4)
+  acordo                  Int?      @db.SmallInt
+  cheque                  Int?
+  impresso                Boolean   @default(false)
+  curso                   Int?      @db.SmallInt
+  acordosubstituicao      Int?      @db.SmallInt
+  dataexclusao            DateTime? @db.Timestamp(6)
+  valorfies               Decimal?  @db.Decimal(15, 2)
+  observacao              String?
+  datadesconto2           DateTime? @db.Timestamp(6)
+  datadesconto3           DateTime? @db.Timestamp(6)
+  valordesconto2          Decimal?  @db.Decimal(15, 2)
+  valordesconto3          Decimal?  @db.Decimal(15, 2)
+  taxabancaria            Decimal?  @db.Decimal(15, 2)
+  complemento             String?   @db.VarChar(12)
+  sequencia               Int?
+  meunumero               String?   @db.VarChar(25)
+  agencia                 String?   @db.VarChar(5)
+  contacorrente           String?   @db.VarChar(8)
+  nossonumerocancelado    String?   @db.VarChar(15)
+  grupoprotocolo          Int
+  protocolo               Int?
+  renovacaoweb            Boolean   @default(false)
+  nossonumerosubstituicao String?   @db.VarChar(15)
+  maiorreceita            Int
+}
+
+model users {
+  id       String    @id
+  username String?
+  name     String?
+  email    String?
+  whatsapp String?
+  password String?
+  birth    DateTime? @db.Timestamp(6)
+  secret   String?
+
+  @@map( "users")
+}
