@@ -4,14 +4,23 @@
             "@/*": [
                 "*"
             ],
+            "@core/*": [
+                "core/*"
+            ],
+            "@interfaces/*": [
+                "core/interfaces/*"
+            ],
             "@enums/*": [
                 "core/enums/*"
             ],
-            "@provider/*": [
-                "infra/providers/*"
-            ],
             "@infra/*": [
                 "infra/*"
+            ],
+            "@prismaC/*": [
+                "infra/prisma/*"
+            ],
+            "@provider/*": [
+                "infra/providers/index.ts"
             ]
         }
     }

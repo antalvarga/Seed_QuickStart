@@ -1,0 +1,10 @@
+# Configuração para o VS Code
+[*.code-workspace]
+indent_size = 4
+indent_style = space
+
+# Configuração geral para linguagens de programação
+[*]
+indent_style = space
+indent_size = 4
+

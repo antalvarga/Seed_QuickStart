@@ -1,5 +1,7 @@
+import * as GetSecret from './GetSecret';
 import * as GenerateSecret from './GenerateSecret';
 
 export const Secret = {
-  ...GenerateSecret,
+    ...GetSecret,
+    ...GenerateSecret,
 };
