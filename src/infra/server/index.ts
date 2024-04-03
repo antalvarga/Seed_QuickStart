@@ -1,18 +1,18 @@
-import express, { Request, Response } from 'express';
 import 'express-async-error';
-
-// import { Error } from "../providers/middlewares/Errors";
-// import { Error } from '@provider/mi';
+import express from 'express';
+import { Error } from '@provider/middlewares/Errors';
+// Routes
 
 const server = express();
+const db = process.env.DATABASE || 'postg';
+const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+console.log(`Timezone :: ${timezone}`);
+console.log(`Database :: ${db}`);
 
 server.use(express.json());
+// server.use( routes );
 
-server.use((error: Error, request: Request, response: Response) => {
-    return response.json({
-        status: 'Error',
-        message: error.message,
-    });
-});
+server.use(Error);
 
 export { server };

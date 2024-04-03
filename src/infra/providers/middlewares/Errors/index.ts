@@ -1,4 +1,3 @@
-import 'express-async-errors';
 import { Request, Response, NextFunction } from 'express';
 import { Email } from '../../../../services/Email';
 import { ApiError } from '../../apis/Error';
