@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { StatusCodes } from 'http-status-codes';
-import { Providers } from '@provider/';
+import { Providers } from '@provider/index';
 import jwt from 'jsonwebtoken';
 
 const checkToken = async (

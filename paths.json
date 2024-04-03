@@ -20,7 +20,7 @@
                 "infra/prisma/*"
             ],
             "@provider/*": [
-                "infra/providers/index.ts"
+                "infra/providers/*"
             ]
         }
     }
