@@ -39,7 +39,7 @@ ferramenta de testes de API que se sentir confortável
 #### FAÇA UM CLONE DO PROJETO:
 
 ```bash
-> git clone https://github.com/antalvarga/
+> git clone https://github.com/antalvarga/Seed_QuickStart.git
 > cd _POC
 
 npm install   # ou
