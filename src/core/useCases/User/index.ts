@@ -4,6 +4,7 @@ import * as removeUser from './removeUser/RemoveUserController';
 import * as showUser from './showUser/ShowUserController';
 import * as updateUser from './updateUser/UpdateUserController';
 import * as authenticateUser from './AuthenticateUser/AuthenticateUserController';
+import * as importUser from './importUser/importUserTxtController';
 
 export const User = {
     ...getUser,
@@ -12,4 +13,5 @@ export const User = {
     ...removeUser,
     ...showUser,
     ...updateUser,
+    ...importUser,
 };

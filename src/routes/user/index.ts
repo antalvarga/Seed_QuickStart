@@ -10,6 +10,7 @@ UserRoutes.delete('/user/:id', User.RemoveUserController);
 UserRoutes.get('/user', User.GetUserController);
 UserRoutes.get('/user/:id', User.ShowUserController);
 UserRoutes.put('/user/:id', User.UpdateUserController);
+UserRoutes.get('/user-import', User.importUserTxtController);
 
 UserRoutes.get(
     '/userauthenticated/:id',

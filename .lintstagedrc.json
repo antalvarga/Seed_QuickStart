@@ -1,6 +1,6 @@
 {
     "*.ts": [
-        "npx eslint 'src/**' --fix",
+        "npx eslint 'src/**' --fix --ignore-path .eslintignore",
         "npx prettier --check 'src/**/*.ts'",
         "npx jest --passWithNoTests --findRelatedTests"
     ]
