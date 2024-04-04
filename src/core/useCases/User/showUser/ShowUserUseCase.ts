@@ -5,6 +5,8 @@ const ShowUserUseCase = async (id: string) => {
         where: { id },
     });
 
+    client.$disconnect();
+
     return showedUser;
 };
 
