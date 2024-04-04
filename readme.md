@@ -1,7 +1,7 @@
-
 ### POC
 
-Este projeto é uma prova de conceito no qual temos a integração entre Node.js e Postgres, utilizando Prisma e técnicas como clean code e solid 
+Este projeto é uma prova de conceito no qual temos a integração entre Node.js e
+Postgres, utilizando Prisma e técnicas como clean code e solid
 
 <br>
 <br>
@@ -9,14 +9,14 @@ Este projeto é uma prova de conceito no qual temos a integração entre Node.js
 
 ## Índice
 
-- [Requisitos](#requisitos)
-- [Instalação](#instalação)
-- [Exemplos](#exemplos)
-- [Instruções de Uso](#instruções-de-uso)
-- [Configuração](#configuração)
-- [Contribuição](#contribuição)
-- [Licença](#licença)
-- [Contato](#contato)
+-   [Requisitos](#requisitos)
+-   [Instalação](#instalação)
+-   [Exemplos](#exemplos)
+-   [Instruções de Uso](#instruções-de-uso)
+-   [Configuração](#configuração)
+-   [Contribuição](#contribuição)
+-   [Licença](#licença)
+-   [Contato](#contato)
 
 <br>
 <br>
@@ -24,10 +24,10 @@ Este projeto é uma prova de conceito no qual temos a integração entre Node.js
 
 ## Requisitos
 
-É Nessário ter instalado o Git, Node.js, ter acesso ao banco de dados Postgres, 
+É Nessário ter instalado o Git, Node.js, ter acesso ao banco de dados Postgres,
 ter acesso ao github.
 
-Usamos como ferramenta de testes para o projeto o postman, mas use qualquer 
+Usamos como ferramenta de testes para o projeto o postman, mas use qualquer
 ferramenta de testes de API que se sentir confortável
 
 <br>
@@ -39,7 +39,7 @@ ferramenta de testes de API que se sentir confortável
 #### FAÇA UM CLONE DO PROJETO:
 
 ```bash
-> git clone https://github.com/antalvarga/POC
+> git clone https://github.com/antalvarga/
 > cd _POC
 
 npm install   # ou
@@ -48,17 +48,19 @@ yarn install
 
 #### CRIE A CONEXÃO COM O POSTGRES:
 
-Caso não tenha o Postgres, sugiro que utilize o neon; é um serviço de banco de 
-dados Postgres, on-line e gratuito: 
+Caso não tenha o Postgres, sugiro que utilize o neon; é um serviço de banco de
+dados Postgres, on-line e gratuito:
 <br>
 https://neon.tech
 
 #### CRIE A REQUEST NO POSTMAN:
+
 Crie uma request do verbo POST, utilizando em 'body' do tipo json conforme a es
 trutura abaixo:
+
 ```
 {
-    
+
     "username": "ikvarga11",
     "name": "Istvan Karoly Varga11",
     "email": "ikvarga11@gmail.com",
@@ -78,7 +80,6 @@ Crie o arquivo src/infra/requests/user/User.rest com o conteúdo de exemplo:
 <br>
 <br>
 
-
 ## Exemplos
 
 #### PARA OBTER UMA LISTA USUÁRIO UTILIZANDO O "Rest Client"
@@ -87,10 +88,11 @@ No arquivo User.rest crie uma requisição conforme abaixo:
 
 ```
 # get all
-GET 
+GET
 http://localhost:3333/users
 ###
 ```
+
 <br>
 
 #### PARA INSERIR UM USUÁRIO UTILIZANDO O "Rest Client"
@@ -107,7 +109,7 @@ Content-Type: application/json
     "whatsapp": "21988999999",
     "email": "nuuuuuuu12@gmail.com.br",
     "password": "123456",
-    "birth" : "1969-10-14T22:57:00.893Z"    
+    "birth" : "1969-10-14T22:57:00.893Z"
 }
 ###
 ```
@@ -125,6 +127,7 @@ Estando no ambiente/servidor dev
 ```
 > npm run dev
 ```
+
 <br>
 Aparecerá a mensagem:
 
@@ -141,6 +144,7 @@ Aparecerá a mensagem:
 Database :: postgresql
 Server is running in port 3333 ...
 ```
+
 <br>
 Com isso podemos disparar as requisições, dadas nos exemplos acima:
 <br>
@@ -153,7 +157,7 @@ BODY/RAW - JSON
 
 ```
 {
-    
+
     "username": "ikvarga12",
     "name": "Istvan Karoly Varga12",
     "email": "ikvarga12@gmail.com",
@@ -168,7 +172,7 @@ BODY/RAW - JSON
 No postman eu salvei essa request com o nome Create_User_Zod
 <br>
 <br>
-Recebemos a resposta abaixo: 
+Recebemos a resposta abaixo:
 
 ```
 {
@@ -188,8 +192,7 @@ Recebemos a resposta abaixo:
 }
 ```
 
-Se por acaso, o usuário já existir será disparado uma mensagem de erro. Esta rotina foi desenvolvida usando um middleware de tratamento de erros 
-
+Se por acaso, o usuário já existir será disparado uma mensagem de erro. Esta rotina foi desenvolvida usando um middleware de tratamento de erros
 
 <br>
 Caso 2 - GET: Utilizando o postman
@@ -197,7 +200,7 @@ Caso 2 - GET: Utilizando o postman
 URL: http://localhost:3333/user?page=1&limit=10&filter=
 <br>
 
-Recebemos a resposta abaixo: 
+Recebemos a resposta abaixo:
 
 ```
 {
@@ -238,11 +241,11 @@ O arquivo .env precisa ter os valores conforme abaixo:
 PORT=3333
 DATABASE_URL=
 ```
-A string de conexão ou DATABASE_URL pode ser obtida através do seu neon.tech 
-ou de alguma IDE para SGBD, como por exemplo o dbeaver 
+
+A string de conexão ou DATABASE_URL pode ser obtida através do seu neon.tech
+ou de alguma IDE para SGBD, como por exemplo o dbeaver
 
 Caso seja necessária alguma configuração adicional, esta será apresentada aqui
-
 
 <br>
 <br>
@@ -250,21 +253,25 @@ Caso seja necessária alguma configuração adicional, esta será apresentada aq
 
 ## Contribuição
 
-
 20240115: Testes e-mail
+<br>
 20240115: Envio de e-mail
+<br>
 20240201: Tratamento de erros
+<br>
+20240404: Aplicação de testes com jest, eslint,
+prietter, conventional commits, commit hooks,
+husky, lint-staged, tsconfig-path
 
-
-#### QUALQUER CONTRIBUIÇÃO É BEM VINDA! 
+#### QUALQUER CONTRIBUIÇÃO É BEM VINDA!
 
 Caso tenha alguma critica ou queira contribuir:
 
-. Faça um fork do projeto 
+. Faça um fork do projeto
 <br>
-. Crie uma branch para poder contribuir 
+. Crie uma branch para poder contribuir
 <br>
-. Faça commit das suas alterações 
+. Faça commit das suas alterações
 <br>
 . Envie uma PR
 <br>
@@ -285,12 +292,12 @@ Caso queira contribuir, siga os passos da [Contribuição](#contribuição).
 
 ## Contato
 
-#### Dúvidas ou sugestões 
+#### Dúvidas ou sugestões
 
-Espero que tenha gostado. Casos tenha dúvidas ou queira entrar em contato: 
+Espero que tenha gostado. Casos tenha dúvidas ou queira entrar em contato:
 
-* Email: asvarga@gmail.com
-* Github: https://github.com/antalvarga
+-   Email: asvarga@gmail.com
+-   Github: https://github.com/antalvarga
 
 <br>
 <br>
