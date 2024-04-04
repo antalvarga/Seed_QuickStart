@@ -4,9 +4,10 @@ import { User } from '@core/useCases';
 
 const UserRoutes = Router();
 
-UserRoutes.get('/user', User.GetUserController);
+UserRoutes.post('/authenticateuser', User.AuthenticateUserController);
 UserRoutes.post('/userzod', User.CreateUserZodController);
 UserRoutes.delete('/user/:id', User.RemoveUserController);
+UserRoutes.get('/user', User.GetUserController);
 UserRoutes.get('/user/:id', User.ShowUserController);
 UserRoutes.put('/user/:id', User.UpdateUserController);
 
