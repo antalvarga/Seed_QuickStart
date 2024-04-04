@@ -8,6 +8,7 @@ UserRoutes.get('/user', User.GetUserController);
 UserRoutes.post('/userzod', User.CreateUserZodController);
 UserRoutes.delete('/user/:id', User.RemoveUserController);
 UserRoutes.get('/user/:id', User.ShowUserController);
+UserRoutes.put('/user/:id', User.UpdateUserController);
 
 UserRoutes.get(
     '/userauthenticated/:id',
