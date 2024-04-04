@@ -1,7 +1,7 @@
 import 'express-async-error';
 import express from 'express';
 import { Error } from '@provider/middlewares/Errors';
-// Routes
+import routes from '@/routes';
 
 const server = express();
 const db = process.env.DATABASE || 'postg';
@@ -11,8 +11,7 @@ console.log(`Timezone :: ${timezone}`);
 console.log(`Database :: ${db}`);
 
 server.use(express.json());
-// server.use( routes );
-
+server.use(routes);
 server.use(Error);
 
 export { server };
