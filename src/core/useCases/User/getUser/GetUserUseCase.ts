@@ -13,6 +13,8 @@ const GetUserUseCase = async (myQuery: IQueryProps) => {
         take: myLimit,
     });
 
+    client.$disconnect();
+
     const myResponse = {
         tablename: 'users',
         totalRecords: myTotal,
