@@ -8,6 +8,8 @@ const RemoveUserUseCase = async (id: string) => {
         },
     });
 
+    client.$disconnect();
+
     return deletedUser;
 };
 
