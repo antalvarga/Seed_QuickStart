@@ -1,6 +1,7 @@
 import * as createUserZod from './createUser/CreateUserController';
+import * as getUser from './getUser/GetUserController';
 
-// export const UserController = {
 export const User = {
+    ...getUser,
     ...createUserZod,
 };

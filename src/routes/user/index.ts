@@ -4,6 +4,7 @@ import { User } from '@core/useCases';
 
 const UserRoutes = Router();
 
+UserRoutes.get('/user', User.GetUserController);
 UserRoutes.post('/userzod', User.CreateUserZodController);
 
 UserRoutes.get(
