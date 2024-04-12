@@ -104,7 +104,7 @@
   "exclude": [
     "jest.config.json",
     "node_modules",
-    "./tests",
+    // "./tests",
     "./build",
     "*.txt"
   ]
