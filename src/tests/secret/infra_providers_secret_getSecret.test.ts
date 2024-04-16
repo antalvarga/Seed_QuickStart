@@ -1,4 +1,4 @@
-import { MockUser } from './_mocks/user.mock';
+import { MockUser } from '../_mocks/user.mock';
 
 const getSecret = (userId: string) => {
     let user;
